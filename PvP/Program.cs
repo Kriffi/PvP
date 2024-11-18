@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,7 +38,7 @@ namespace PvP
             Console.WriteLine("\n**" + new string('-', 25) + "**");
 
 
-            
+
             while (firstFighter.Health > 0 && secondFighter.Health > 0)
             {
                 firstFighter.TakeDamage(secondFighter.Damage);
@@ -48,75 +48,84 @@ namespace PvP
                 Console.WriteLine("\n");
             }
             if (firstFighter.Health > 0)
-            
+            {
                 firstFighter.ShowWiner();
-            Console.Write(firstFighter.Name + "\n");
+                return;
             }
-            
-            
+            if (secondFighter.Health > 0);
+                    {
 
-        }
+                secondFighter.ShowWiner();
+                return;
+            }
+
+
+    }
+
+
+
+}
 
     }
 
     class Fighter
+{
+    private string _name;
+    private int _health;
+    private int _damage;
+    private int _armor;
+
+    public int Health
     {
-        private string _name;
-        private int _health;
-        private int _damage;
-        private int _armor;
-
-        public int Health
+        get
         {
-            get
-            {
-                return _health;
-            }
+            return _health;
         }
-        public int Damage
-        {
-            get
-            {
-                return _damage;
-            }
-        }
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-        }
-
-
-
-
-        public Fighter(string name, int health, int damage, int armor)
-        {
-            _name = name;
-            _health = health;
-            _damage = damage;
-            _armor = armor;
-        }
-        public void ShowStats()
-        {
-            Console.WriteLine($"Боец - {_name}, здоровье: {_health}, наносимый урон: {_damage}, бронь: {_armor}");
-        }
-
-        public void ShowCurrentHealth()
-        {
-            Console.WriteLine($"{_name} здоровье: {_health}");
-        }
-        public void TakeDamage(int damage)
-        {
-            _health -= damage - _armor;
-        }
-        public void ShowWiner()
-        {
-            Console.Write($"Победитеь: ");
-        }
-
-
     }
+    public int Damage
+    {
+        get
+        {
+            return _damage;
+        }
+    }
+    public string Name
+    {
+        get
+        {
+            return _name;
+        }
+    }
+
+
+
+
+    public Fighter(string name, int health, int damage, int armor)
+    {
+        _name = name;
+        _health = health;
+        _damage = damage;
+        _armor = armor;
+    }
+    public void ShowStats()
+    {
+        Console.WriteLine($"Боец - {_name}, здоровье: {_health}, наносимый урон: {_damage}, бронь: {_armor}");
+    }
+
+    public void ShowCurrentHealth()
+    {
+        Console.WriteLine($"{_name} здоровье: {_health}");
+    }
+    public void TakeDamage(int damage)
+    {
+        _health -= damage - _armor;
+    }
+    public void ShowWiner()
+    {
+        Console.Write($"Победитеь: {Name}\n");
+    }
+
+
+}
 
 
